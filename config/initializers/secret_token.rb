@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-FollowMe::Application.config.secret_key_base = '4c3268882f1d1ab17db80fb5b0023d664b62fc3f0de8829c9a7670f0d1540abbef4a4c44edc4eef4dee50d12ae15b4cf2bc1b0dc51c584dc90e265ec42d70cb3'
+#FollowMe::Application.config.secret_key_base = '4c3268882f1d1ab17db80fb5b0023d664b62fc3f0de8829c9a7670f0d1540abbef4a4c44edc4eef4dee50d12ae15b4cf2bc1b0dc51c584dc90e265ec42d70cb3'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+FollowMe::Application.config.secret_key_base = secure_token
