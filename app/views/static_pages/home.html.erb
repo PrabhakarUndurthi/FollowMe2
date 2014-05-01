@@ -1,6 +1,12 @@
+<div class="center hero-unit">
+  <h1>Welcome to FollowMe</h1>
 
-<% provide(:title, 'Home') %>
-  <h1> FollowMe</h1>
-  <p>
-  This is the home page for the FollowMe Application</p>
-   
+  <h2>
+    This is the home page for the
+    <a href="#">Ruby on Rails Application</a>
+  </h2>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
