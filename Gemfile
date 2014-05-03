@@ -2,8 +2,13 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
+#<<<<<<< HEAD
 gem 'bootstrap-sass', '2.3.2.0'
 #gem 'sprockets', '2.11.0'
+#=======
+gem 'bootstrap-sass','2.3.2.0'
+gem 'sprockets', '2.11.0'
+#>>>>>>> filling-in-layout
 
 group :development, :test do 
 	gem 'sqlite3', '1.3.8'
